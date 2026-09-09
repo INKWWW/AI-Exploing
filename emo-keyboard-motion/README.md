@@ -1,4 +1,4 @@
-# 键盘3D重建  **[打开在线 Demo →](https://emo-keyboard-motion.vercel.app/)**
+# 键盘3D重建  **[体验Demo](https://emo-keyboard-motion.vercel.app/)**
 在 GPT6 Astra Medium 的 /Goal 模式下，通过prompt让模型根据一段“键盘展示视频”重建3D，并且支持与原视频同步播放展示，以及自由拖动键盘体验3D效果。
 
 ## 是什么
