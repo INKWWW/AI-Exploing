@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17191b" />
+    <meta name="description" content="EMO 超薄键盘：原始影像与 Three.js 实时三维复刻，同步并排对比。" />
+    <title>EMO — Motion study / 键盘动态复刻</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="EMO 首页">EMO<span>®</span></a>
+        <div class="masthead-title">FORM IN MOTION<span>键盘动态研究</span></div>
+        <span class="edition">STUDY / 001</span>
+      </header>
+      <main>
+        <section class="intro">
+          <div><p class="eyebrow">A CLOSER LOOK</p><h1>薄至形，动于芯<span class="title-dot">.</span></h1><div class="detail-description"><span class="detail-kicker">THE MECHANISM</span><h2 id="chapter-title">每一处细节，都有自己的运动。</h2><p id="chapter-description">黑色键帽、金属边框与窄边机身，在侧光中逐渐显现。</p></div></div>
+          <p class="intro-copy">从一枚键帽，到精密机械结构。<br>原始影像与实时三维，在同一时间里对照。</p>
+        </section>
+        <section class="comparison" aria-label="视频与三维模型同步对比">
+          <div class="panel">
+            <div class="panel-heading"><span><i class="dot reference-dot"></i>原始影像<span class="en">REFERENCE</span></span><span class="format">MP4</span></div>
+            <div class="stage video-stage"><video id="reference" src="/reference-9s.mp4" poster="/poster.jpg" muted playsinline preload="auto" aria-label="原始键盘演示视频"></video><span class="corner-label">SOURCE FILM</span></div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading"><span><i class="dot live-dot"></i>三维复刻<span class="en">RECONSTRUCTION</span></span><span class="format" id="renderer-status">加载中</span></div>
+            <div class="stage render-stage" id="render-stage"><canvas id="scene" aria-label="Three.js 实时渲染的键盘与机械结构"></canvas><span class="corner-label" id="render-label">REAL-TIME / THREE.JS</span><button class="expand-button" id="expand" aria-label="全屏查看三维画面" title="全屏查看">⤢</button><div class="scene-error" id="scene-error" hidden></div></div>
+          </div>
+        </section>
+        <section class="transport" aria-label="同步播放控制">
+          <div class="transport-top">
+            <div class="play-controls"><button id="play" class="play-button" aria-label="播放">▶<span>播放</span></button><button id="restart" class="icon-button" aria-label="从头播放" title="从头播放">↺</button><span class="timecode"><label class="precise-time"><input id="current-time" type="number" min="0" max="9" step="0.01" value="0.00" aria-label="定位秒数" title="输入秒数，按回车精确定位" /><span>s</span></label><span class="time-divider">/</span><span id="duration">00:09.00</span></span></div>
+            <div class="view-controls"><span>三维视角</span><div class="segmented" role="group" aria-label="三维视角"><button id="film-view" class="selected" aria-pressed="true">跟随原片</button><button id="model-view" aria-pressed="false">自由观察</button></div><p id="view-hint">点击「自由观察」，拖动右侧键盘查看 3D。</p></div>
+            <div class="play-options"><span class="sync-state" id="sync-state"><i></i>同步时间轴</span><label class="speed-label" for="speed">速度</label><select id="speed" aria-label="播放速度"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select><button id="loop" aria-pressed="true" title="循环播放">循环 <span>ON</span></button><button id="sound" class="icon-button sound-button" aria-label="开启原片声音" title="开启原片声音">静音</button></div>
+          </div>
+          <div class="timeline-wrap"><input id="timeline" type="range" min="0" max="9" step="0.001" value="0" aria-label="同步播放进度" /><div class="timeline-ticks"><span>00:00</span><span>00:03</span><span>00:06</span><span>00:09</span></div></div>
+          <div class="chapters"><button data-time="0" class="chapter active"><span class="chapter-line"></span><span>键盘特写</span><small>00:00</small></button><button data-time="2.55" class="chapter"><span class="chapter-line"></span><span>结构显露</span><small>00:02.55</small></button><button data-time="3.6" class="chapter"><span class="chapter-line"></span><span>分离展开</span><small>00:03.60</small></button><button data-time="5.5" class="chapter"><span class="chapter-line"></span><span>悬浮旋转</span><small>00:05.50</small></button></div>
+        </section>
+      </main>
+      <footer><span>EMO <span class="footer-separator">/</span> MOTION STUDY</span><span>原片参照重建 · 参数化建模 · 实时光影</span><span>2026</span></footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
